@@ -1,5 +1,5 @@
 {% set name = "cocopye" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cocopye-{{ version }}.tar.gz
-  sha256: ca2ba051702728e8a0910f8a545d700b2aafb8b0cec503bc22d4850d28a301f3
+  sha256: bd1cd0dd8b7f3d70cc900c9e299f1726b62cc2c7a609b476c59adfedffae0300
 
 build:
   entry_points:
