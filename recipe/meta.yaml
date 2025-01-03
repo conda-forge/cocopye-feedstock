@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cocopye-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/cocopye-{{ version }}.tar.gz
   sha256: aef29373a987bb5492f1ffba83cf22e25c4008a0ded57864f00ced45b23af67a
 
 build:
@@ -14,15 +14,15 @@ build:
     - cocopye = cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - numpy >=1.23
     - numba >=0.56.4
     - biopython ==1.81
@@ -44,6 +44,7 @@ test:
     - cocopye --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/gobics/cocopye
